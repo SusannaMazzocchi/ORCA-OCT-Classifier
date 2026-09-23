@@ -67,7 +67,7 @@ All numbers are computed on the held out test set.
 | MedGemma 4B* | 0.900 | 0.979 | 0.880 | 0.204 |
 | MIRAGE Base | 0.960 | 0.995 | 0.870 | 0.977 |
 
-*\*MedGemma was evaluated on 511 of the 553 test images, because feature extraction failed on 42 of them.*
+\*MedGemma was evaluated on 511 of the 553 test images, because feature extraction failed on 42 of them.*
 
 The main takeaway is that **no single model wins everywhere**:
 
@@ -75,7 +75,7 @@ The main takeaway is that **no single model wins everywhere**:
 * **EfficientNet B0** is the most balanced one: near top classification, good OOD detection and clear Grad-CAM explanations.
 * **MedGemma 4B** has the highest AMD recall even with a frozen encoder, but it labels every glaucoma image as AMD with high confidence, so it does not notice that anything is wrong.
 * **CustomCNN** is the baseline, and it shows why pretraining matters: it struggles with AMD and calls every glaucoma image DME with almost 99% confidence.
-* 
+  
 ### A few figures
 <img width="2094" height="1906" alt="confusion_matrices" src="https://github.com/user-attachments/assets/6221eb14-60ad-4687-88ac-8c32ccfbcc44" />
 *Confusion matrices on the test set. The CustomCNN mixes up more than half of the AMD scans with DME, while the other models are much more consistent.*
@@ -121,7 +121,7 @@ ORCA is a prototype, and there is a lot I would still like to do. If I continue 
 
 Scan the QR code to open the ORCA prototype, or use the link below.
 
-<img width="1148" height="1148" alt="qr-code" src="https://github.com/user-attachments/assets/e1854d5a-d2ec-4cbd-926e-78aec6a56e76" />
+<img width="574" height="574" alt="qr-code" src="https://github.com/user-attachments/assets/e1854d5a-d2ec-4cbd-926e-78aec6a56e76" />
 
 [Open ORCA](https://orca-oct-classifier-dlxltwcshusintuhfq89ak.streamlit.app/)
 
@@ -135,3 +135,15 @@ Scan the QR code to open the ORCA prototype, or use the link below.
 The datasets are not included in this repository. Please download them from the links above and follow the instructions in the notebooks.
 
 
+## 📄 Full thesis
+
+This README only scratches the surface. If you want the full story, including the design choices, the details of each model, all the metrics, the calibration and OOD analysis, and the regulatory and ethical discussion, please read the complete thesis: [`ORCA_thesis.pdf`](ORCA_thesis.pdf).
+
+<br>
+
+---
+
+**Susanna Mazzocchi**
+Bachelor in Artificial Intelligence, University of Pavia, University of Milan and Milano Bicocca
+Supervisor: Prof. Giovanna Nicora
+Academic Year 2025/2026
