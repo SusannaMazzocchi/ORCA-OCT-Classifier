@@ -10,8 +10,16 @@ The project started in the Medical Devices lab, where I began working on it toge
 
 The heart of the project is a comparison between two kinds of approaches. On one side there is "classic" deep learning: a small CNN built from scratch and EfficientNet adapted with transfer learning. On the other side there are two recent medical foundation models, MedGemma and MIRAGE.
 
-Because accuracy alone is not enough for a tool that could end up near real patients. So for every model I also looked at whether its confidence can be trusted (calibration), whether it can realize when it is looking at something it has never seen, like glaucoma, instead of forcing it into a known class (out of distribution detection), and whether we can see where it is looking when it makes a decision (explainability with heatmaps).
+Accuracy alone is not enough for a tool intended for clinical use. Therefore, for every model I also looked at at whether its confidence can be trusted (calibration), whether it can realize when it is looking at something it has never seen, like glaucoma, instead of forcing it into a known class (out of distribution detection), and whether we can see where it is looking when it makes a decision (explainability with heatmaps).
 
+
+## 🌍 Why this matters (Societal Impact)
+
+Vision loss from AMD and DME affects hundreds of millions of people worldwide. With aging populations and rising diabetes rates, clinics are overwhelmed by OCT scans, leading to severe screening bottlenecks. 
+
+Projects like ORCA demonstrate how AI can tackle this challenge, focusing not just on performance, but on **clinical safety**-
+
+  
 > ⚠️ **Important:** ORCA is a research demonstrator, not a clinical product. It does not replace the judgement of a qualified ophthalmologist.
 
 
@@ -149,5 +157,7 @@ This README only scratches the surface. If you want the full story, including th
 
 **Susanna Mazzocchi**
 Bachelor in Artificial Intelligence, University of Pavia, University of Milan and Milano Bicocca
+
 Supervisor: Prof. Giovanna Nicora
+
 Academic Year 2025/2026
