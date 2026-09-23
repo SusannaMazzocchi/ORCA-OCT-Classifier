@@ -1,15 +1,11 @@
-"""
-app.py  —  OCT Retinal Disease Classifier
-"""
-
 import os
+import urllib.request
 import torch
 import numpy as np
 import streamlit as st
 from PIL import Image, UnidentifiedImageError
-import urllib.request
 
-from model.loader    import load_config, load_model, count_parameters, DEVICE
+from model.loader import load_config, load_model, count_parameters, DEVICE
 from model.predictor import (
     preprocess_image,
     predict_image,
@@ -27,20 +23,19 @@ from utils.visualization import (
     pil_to_thumbnail,
 )
 
+LOGO_PATH = os.path.join(os.path.dirname(__file__), "logo.png")
+WEIGHTS_DIR = os.path.join(os.path.dirname(__file__), "weights")
+CONFIG_PATH = os.path.join(WEIGHTS_DIR, "config.json")
 
 st.set_page_config(
     page_title="ORCA — OCT Retinal Classification Assistant",
-    page_icon="logo.png",
+    page_icon=LOGO_PATH if os.path.exists(LOGO_PATH) else "👁️",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-WEIGHTS_DIR = os.path.join(os.path.dirname(__file__), "weights")
-CONFIG_PATH = os.path.join(WEIGHTS_DIR, "config.json")
-LOGO_PATH = os.path.join(CURRENT_DIR, "logo.png")
-
-GITHUB_USERNAME = "SusannaMazzocchi"         
-REPO_NAME = "orca-oct-classifier"        
+GITHUB_USERNAME = "SusannaMazzocchi"
+REPO_NAME = "orca-oct-classifier"
 RELEASE_TAG = "v1.0.0"
 
 MODELS_TO_DOWNLOAD = [
@@ -49,6 +44,7 @@ MODELS_TO_DOWNLOAD = [
     "best_MedGemma.pth",
     "MIRAGE_Base_OCT5k.pth",
 ]
+
 @st.cache_resource
 def download_weights_if_missing():
     os.makedirs(WEIGHTS_DIR, exist_ok=True)
@@ -139,7 +135,8 @@ CLASS_NAMES = config["class_names"]
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.image("logo.png", width=150)
+    if os.path.exists(LOGO_PATH):
+        st.image(LOGO_PATH, width=150)
     st.markdown(
         "<h2 style='font-family:Plus Jakarta Sans;font-size:1.15rem;"
         "color:#2D3142;margin-bottom:2px'>ORCA</h2>"
