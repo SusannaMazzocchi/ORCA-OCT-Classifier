@@ -125,7 +125,7 @@ ORCA is a prototype, and there is a lot I would still like to do. If I continue 
 
 Scan the QR code to open the ORCA prototype, or use the link below.
 
-<img width="574" height="574" alt="qr-code" src="https://github.com/user-attachments/assets/e1854d5a-d2ec-4cbd-926e-78aec6a56e76" />
+<img width="350" height="350" alt="qr-code" src="https://github.com/user-attachments/assets/e1854d5a-d2ec-4cbd-926e-78aec6a56e76" />
 
 [Open ORCA](https://orca-oct-classifier-dlxltwcshusintuhfq89ak.streamlit.app/)
 
