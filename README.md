@@ -77,13 +77,17 @@ The main takeaway is that **no single model wins everywhere**:
 * **CustomCNN** is the baseline, and it shows why pretraining matters: it struggles with AMD and calls every glaucoma image DME with almost 99% confidence.
   
 ### A few figures
+
 <img width="2094" height="1906" alt="confusion_matrices" src="https://github.com/user-attachments/assets/6221eb14-60ad-4687-88ac-8c32ccfbcc44" />
+
 *Confusion matrices on the test set. The CustomCNN mixes up more than half of the AMD scans with DME, while the other models are much more consistent.*
 
 <img width="2074" height="1753" alt="ood_entropy_histograms" src="https://github.com/user-attachments/assets/3e294e3f-6f3b-47d6-bb82-e4b74e40cb17" />
+
 *Entropy of the predictions on in distribution images versus glaucoma images. MIRAGE and EfficientNet push glaucoma towards high entropy, so it gets flagged. CustomCNN and MedGemma stay confident and miss it.*
 
 <img width="1790" height="914" alt="gradcam_test_samples" src="https://github.com/user-attachments/assets/3db2f89e-3d4a-4dcd-8edc-ef54188fd2ad" />
+
 *Grad-CAM heatmaps for CustomCNN (top) and EfficientNet (bottom). Warmer colours mark the regions that pushed the model towards its prediction.*
 
 
