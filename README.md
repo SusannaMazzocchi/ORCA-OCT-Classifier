@@ -4,7 +4,7 @@
 
 Hi, I'm Susanna! This is my Bachelor's thesis in Artificial Intelligence (the joint degree between the University of Pavia, the University of Milan and Milano Bicocca), and it comes from something I care about a lot: using AI in medicine, and in this case in ophthalmology.
 
-The project started in the Medical Devices lab, where I began working on it together with my classmate Carlotta Zanei. I then kept going on my own and turned it into my thesis, with Professor Giovanna Nicora as my supervisor.
+The project started in the Medical Devices and Systems lab, where I began working on it together with my classmate Carlotta Zanei. I then kept going on my own and turned it into my thesis, with Professor Giovanna Nicora as my supervisor.
 
 **ORCA (OCT Retinal Classification Assistant)** is a decision support system that looks at retinal OCT scans and sorts them into three categories: Age related Macular Degeneration (AMD), Diabetic Macular Edema (DME) and Normal. These are two of the leading causes of vision loss worldwide, and clinics produce far more scans every day than there are specialists to read them.
 
