@@ -1,6 +1,5 @@
 """
 app.py  —  OCT Retinal Disease Classifier
-Run with:  streamlit run app.py
 """
 
 import os
@@ -8,7 +7,7 @@ import torch
 import numpy as np
 import streamlit as st
 from PIL import Image, UnidentifiedImageError
-import gdown
+import urllib.request
 
 from model.loader    import load_config, load_model, count_parameters, DEVICE
 from model.predictor import (
@@ -28,7 +27,7 @@ from utils.visualization import (
     pil_to_thumbnail,
 )
 
-# ── 1. Page config (DEVE essere il primissimo comando Streamlit) ───────────────
+
 st.set_page_config(
     page_title="ORCA — OCT Retinal Classification Assistant",
     page_icon="logo.png",
@@ -36,26 +35,28 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-# ── 2. Paths ──────────────────────────────────────────────────────────────────
 WEIGHTS_DIR = os.path.join(os.path.dirname(__file__), "weights")
 CONFIG_PATH = os.path.join(WEIGHTS_DIR, "config.json")
 
-# ── 3. Download dei pesi se mancanti ───────────────────────────────────────────
-MODELS_TO_DOWNLOAD = {
-    "best_CustomCNN.pth": "1c5TPlxQOIaqwME9i0gK5NikLVoTT9rWu",
-    "best_EfficientNet.pth": "1j1S3RSsVs0P9IP6JNsB7O4La9w8kNIVN",
-    "best_MedGemma.pth": "1AN30OH4QvevAB2JTZxI7g3CPUH_Cr2Ck",
-    "MIRAGE_Base_OCT5k.pth": "1MmnGaqS74VLnHDOCVdcI1kpOZD33u5NU",
-}
+GITHUB_USERNAME = "SusannaMazzocchi"         
+REPO_NAME = "orca-oct-classifier"        
+RELEASE_TAG = "v1.0.0"
 
+MODELS_TO_DOWNLOAD = [
+    "best_CustomCNN.pth",
+    "best_EfficientNet.pth",
+    "best_MedGemma.pth",
+    "MIRAGE_Base_OCT5k.pth",
+]
 @st.cache_resource
 def download_weights_if_missing():
     os.makedirs(WEIGHTS_DIR, exist_ok=True)
-    for filename, file_id in MODELS_TO_DOWNLOAD.items():
+    for filename in MODELS_TO_DOWNLOAD:
         destination = os.path.join(WEIGHTS_DIR, filename)
         if not os.path.exists(destination):
-            with st.spinner(f"(Downloading weights {filename})..."):
-                gdown.download(id=file_id, output=destination, quiet=False)
+            url = f"https://github.com/{GITHUB_USERNAME}/{REPO_NAME}/releases/download/{RELEASE_TAG}/{filename}"
+            with st.spinner(f"Downloading weights ({filename})..."):
+                urllib.request.urlretrieve(url, destination)
 
 download_weights_if_missing()
 
