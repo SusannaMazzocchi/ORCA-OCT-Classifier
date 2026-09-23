@@ -67,7 +67,7 @@ All numbers are computed on the held out test set.
 | MedGemma 4B* | 0.900 | 0.979 | 0.880 | 0.204 |
 | MIRAGE Base | 0.960 | 0.995 | 0.870 | 0.977 |
 
-\*MedGemma was evaluated on 511 of the 553 test images, because feature extraction failed on 42 of them.*
+*MedGemma was evaluated on 511 of the 553 test images, because feature extraction failed on 42 of them.*
 
 The main takeaway is that **no single model wins everywhere**:
 
