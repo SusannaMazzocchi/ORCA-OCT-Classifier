@@ -37,6 +37,7 @@ st.set_page_config(
 
 WEIGHTS_DIR = os.path.join(os.path.dirname(__file__), "weights")
 CONFIG_PATH = os.path.join(WEIGHTS_DIR, "config.json")
+LOGO_PATH = os.path.join(CURRENT_DIR, "logo.png")
 
 GITHUB_USERNAME = "SusannaMazzocchi"         
 REPO_NAME = "orca-oct-classifier"        
