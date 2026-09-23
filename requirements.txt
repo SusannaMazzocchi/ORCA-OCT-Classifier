@@ -1,0 +1,44 @@
+# ORCA: OCT Retinal Classification Assistant
+# Python packages needed to run the notebooks and the Streamlit demo.
+# I developed everything on Kaggle (T4x2 GPU, Python 3.10+),
+# so this list is meant to match that setup.
+#
+# Install with:  pip install -r requirements.txt
+
+# Deep learning core (CustomCNN, EfficientNet B0, MIRAGE Base)
+torch>=2.1
+torchvision>=0.16
+
+# MedGemma 4B (I only use its vision encoder as a frozen feature extractor)
+# MedGemma needs a recent version of transformers
+transformers>=4.50.0
+accelerate
+huggingface_hub
+
+# Data handling and evaluation
+numpy
+pandas
+scipy
+scikit-learn
+Pillow
+tqdm
+
+# Plots for the results chapter (confusion matrices, ROC, reliability diagrams)
+matplotlib
+seaborn
+
+# Grad-CAM saliency maps for the convolutional models
+grad-cam
+
+# Web interface (the ORCA prototype)
+streamlit
+
+# Note on MIRAGE:
+# the mirage_wrapper factory and the MIRAGE Base weights are NOT on PyPI.
+# Please clone the official MIRAGE repository and download the weights
+# from there, then place them where the notebooks expect them.
+#
+# Note on MedGemma:
+# google/medgemma-4b-it is a gated model on HuggingFace, so you need to
+# accept the license on the model page and log in with your access token
+# before the notebooks can download it.
