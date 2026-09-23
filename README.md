@@ -1,4 +1,4 @@
-# ORCA-OCT-Classifier
+# 👁️ ORCA: An AI-Based Decision Support System for Retinal OCT
 
 ## 📝 Short introduction
 
